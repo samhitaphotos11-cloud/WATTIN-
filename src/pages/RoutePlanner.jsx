@@ -58,7 +58,7 @@ export default function RoutePlanner({ routeData, setRouteData }) {
   const [temperature, setTemperature] = useState(25);
   const [efficiency, setEfficiency] = useState(150);
   
-  const [targetSoc, setTargetSoc] = useState(20);
+  const [targetSoc, setTargetSoc] = useState(80);
   const [chargerPower, setChargerPower] = useState(50);
 
   const [loading, setLoading] = useState(false);
@@ -307,7 +307,7 @@ export default function RoutePlanner({ routeData, setRouteData }) {
 
             <div className={styles.paramGrid}>
               <div className={styles.paramCard}>
-                <span className={styles.paramLabel}>CURRENT RANGE</span>
+                <span className={styles.paramLabel}>BATTERY CAPACITY</span>
                 <div className={styles.paramValueRow}>
                   <input
                     className={styles.paramInput}

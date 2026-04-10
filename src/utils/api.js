@@ -50,7 +50,7 @@ const ML_HEADERS = { 'Content-Type': 'application/json', 'ngrok-skip-browser-war
 
 // ── Range/Energy prediction  (/energy/predict) ──────────────────────────────
 // Fields required (confirmed): soc_percent, battery_capacity_kwh, distance_km
-export async function predictRange({ soc, battery_capacity, distance }) {
+export async function predictRange({ soc, battery_capacity, efficiency, distance }) {
   try {
     const res = await fetch(`${ML_BASE}/energy/predict`, {
       method: 'POST',
@@ -75,12 +75,13 @@ export async function predictRange({ soc, battery_capacity, distance }) {
       arrival_soc:          parseFloat(arrival_soc.toFixed(1)),
       remaining_range:      parseFloat((d.range_remaining_km ?? 0).toFixed(1)),
       energy_consumed_kwh:  parseFloat((d.energy_needed_kwh ?? 0).toFixed(4)),
+      energy_available_kwh: d.energy_available_kwh ?? 0,
       charge_status:        d.charge_status ?? '',
       source: 'ml',
     };
   } catch (err) {
     console.warn('Range ML API (/energy/predict) unavailable, using physics fallback:', err.message);
-    return rangePhysicsFallback({ soc, battery_capacity, distance });
+    return rangePhysicsFallback({ soc, battery_capacity, efficiency, distance });
   }
 }
 
@@ -114,12 +115,12 @@ export async function predictChargingTime({ arrival_soc, target_soc, battery_cap
 // Fixed: Pass initial 'soc' to charging time to match user's test model cases exactly
 export async function predictEV({ soc, battery_capacity, efficiency, distance, charger_power, target_soc, temperature }) {
   // Step 1: range from /energy/predict (uses initial soc)
-  const rangeResult = await predictRange({ soc, battery_capacity, distance, temperature });
+  const rangeResult = await predictRange({ soc, battery_capacity, efficiency, distance, temperature });
 
   // Step 2: charging time from /evcs/predict
-  // Changed: Passing initial 'soc' to match user test criteria: "SOC=10% -> EVCS Response"
+  // Pass arrival_soc to determine the correct charging time required at destination/station
   const chargeResult = await predictChargingTime({
-    arrival_soc:     soc, 
+    arrival_soc:     rangeResult.arrival_soc, 
     target_soc:      target_soc ?? 80,
     battery_capacity,
     charger_power:   charger_power ?? 50,
@@ -132,6 +133,7 @@ export async function predictEV({ soc, battery_capacity, efficiency, distance, c
     energy_consumed_kwh:   rangeResult.energy_consumed_kwh,
     charging_time_minutes: chargeResult.charging_time_minutes,
     charge_status:         rangeResult.charge_status,
+    energy_available_kwh:  rangeResult.energy_available_kwh,
     source: rangeResult.source === 'physics' && chargeResult.source === 'physics'
       ? 'physics' : 'ml',
   };
@@ -149,6 +151,7 @@ function rangePhysicsFallback({ soc, battery_capacity, efficiency = 180, distanc
     arrival_soc:         parseFloat(arrival_soc.toFixed(1)),
     remaining_range:     parseFloat(remaining_range.toFixed(1)),
     energy_consumed_kwh: parseFloat(energy_needed.toFixed(2)),
+    energy_available_kwh: parseFloat(available_energy.toFixed(2)),
     charge_status:       remaining_energy > 0 ? 'Sufficient charge' : 'Insufficient charge',
     source: 'physics',
   };
@@ -158,7 +161,7 @@ function chargingTimeFallback({ arrival_soc = 0, target_soc = 80, battery_capaci
   const energy_to_charge = ((target_soc - Math.min(arrival_soc, target_soc)) / 100) * battery_capacity;
   const charging_time    = (energy_to_charge / charger_power) * 60;
   return {
-    charging_time_minutes: parseFloat(charging_time.toFixed(0)),
+    charging_time_minutes: parseFloat(charging_time.toFixed(2)),
     source: 'physics',
   };
 }
