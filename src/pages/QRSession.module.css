@@ -1,0 +1,756 @@
+/* =========================================================
+   QRSession — Fluid Navigator Light Theme
+   ========================================================= */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  background: var(--surface);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.heading {
+  font-family: var(--font-headline);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--on-surface);
+  letter-spacing: -0.3px;
+}
+
+.sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.securityBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(0, 107, 92, 0.06);
+  border: 1px solid rgba(0, 107, 92, 0.15);
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  align-items: center;
+  padding: 18px 28px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepNum {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.stepLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color var(--transition-base);
+}
+
+.stepActive .stepNum {
+  background: rgba(0, 107, 92, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.stepActive .stepLabel {
+  color: var(--primary);
+}
+
+.stepDone .stepNum {
+  background: rgba(0, 191, 165, 0.08);
+  border-color: rgba(0, 191, 165, 0.3);
+  color: var(--primary);
+}
+
+.stepDone .stepLabel {
+  color: var(--text-secondary);
+}
+
+.stepLine {
+  flex: 1;
+  height: 1px;
+  background: var(--border-default);
+  margin: 0 10px;
+  min-width: 20px;
+  transition: background var(--transition-base);
+}
+
+.stepLineDone {
+  background: rgba(0, 191, 165, 0.3);
+}
+
+/* Content */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px;
+}
+
+/* Setup */
+.setupWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  animation: fadeIn 0.4s ease both;
+}
+
+.setupCard {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-3xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.setupTitle {
+  font-family: var(--font-headline);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.setupDesc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.formSelect,
+.formInput {
+  width: 100%;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+  font-size: 13px;
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  appearance: none;
+}
+
+.formSelect:focus,
+.formInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 107, 92, 0.08);
+}
+
+.formSelect option {
+  background: var(--surface-container-lowest);
+}
+
+.formInput[type='number'] {
+  -moz-appearance: textfield;
+}
+.formInput[type='number']::-webkit-outer-spin-button,
+.formInput[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stationPreview {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface-container-low);
+  border-radius: var(--radius-lg);
+}
+
+.stationPreviewDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.stationPreviewName {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.stationPreviewMeta {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.securityInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(0, 107, 92, 0.04);
+  border: 1px solid rgba(0, 107, 92, 0.12);
+  border-radius: var(--radius-lg);
+  font-size: 12px;
+  color: var(--primary);
+  line-height: 1.4;
+}
+
+.bookBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  font-family: var(--font-body);
+  box-shadow: 0 8px 20px rgba(0, 107, 92, 0.2);
+}
+
+.bookBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0, 107, 92, 0.3);
+}
+
+.bookBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Info panel */
+.infoPanel {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-3xl);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.infoPanelTitle {
+  font-family: var(--font-headline);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: 20px;
+}
+
+.infoSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.infoStep {
+  display: flex;
+  gap: 12px;
+}
+
+.infoStepNum {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background: var(--surface-container-low);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+.infoStepTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: 4px;
+}
+
+.infoStepDesc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* QR step layout */
+.qrStep {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  max-width: 800px;
+  animation: fadeIn 0.4s ease both;
+}
+
+/* QR card */
+.qrCard {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-3xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 300px;
+  box-shadow: var(--shadow-sm);
+}
+
+.qrCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qrCardIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.qrCardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-surface);
+  line-height: 1.2;
+}
+
+.qrCardSub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.qrWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.qrBorder {
+  padding: 16px;
+  border: 1px solid;
+  border-radius: var(--radius-lg);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qrExpiry {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--accent-warning);
+  font-weight: 600;
+}
+
+.qrMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qrMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.qrMetaKey {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.qrMetaVal {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  text-align: right;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+}
+
+.downloadBtn:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+/* Session info */
+.sessionInfo {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-3xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+  box-shadow: var(--shadow-sm);
+}
+
+.sessionInfoTitle {
+  font-family: var(--font-headline);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.sessionInfoRows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sessionInfoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 12px;
+  background: var(--surface-container-low);
+  border-radius: var(--radius-md);
+}
+
+.sessionInfoLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.sessionInfoVal {
+  font-size: 13px;
+  color: var(--on-surface);
+  font-weight: 700;
+  font-family: var(--font-body);
+}
+
+.expiryWarning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: var(--accent-warning);
+  font-weight: 600;
+}
+
+.proceedBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 20px rgba(0, 107, 92, 0.2);
+}
+
+.proceedBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0, 107, 92, 0.3);
+}
+
+/* Active session */
+.activeSession {
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.4s ease both;
+}
+
+.activeHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.activePulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: pulseGlow 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.activeTitle {
+  font-family: var(--font-headline);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.activeCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.activeCard {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.activeCardLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.activeCardVal {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+/* Battery viz */
+.batteryViz {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 48px;
+}
+
+.batteryBody {
+  flex: 1;
+  height: 48px;
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-container-low);
+}
+
+.batteryFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-container));
+  border-radius: 4px;
+  transition: width 1s ease;
+  box-shadow: 0 0 16px rgba(0, 191, 165, 0.2);
+}
+
+.batteryLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--on-surface);
+  font-family: var(--font-headline);
+  z-index: 1;
+}
+
+.batteryTip {
+  width: 6px;
+  height: 22px;
+  background: var(--border-default);
+  border-radius: 0 3px 3px 0;
+}
+
+.estimateRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.endBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-body);
+}
+
+.endBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(0, 107, 92, 0.04);
+}
+
+/* Completion */
+.completeBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: rgba(0, 191, 165, 0.06);
+  border: 1px solid rgba(0, 191, 165, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.sessionResetBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: var(--surface-container-low);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+}
+
+.sessionResetBtn:hover {
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .setupWrap {
+    grid-template-columns: 1fr;
+  }
+  .qrStep {
+    grid-template-columns: 1fr;
+  }
+  .qrCard {
+    width: 100%;
+  }
+  .content {
+    padding: 20px 16px;
+  }
+}

@@ -1,0 +1,33 @@
+[
+  {
+    "path": "/energy/predict",
+    "payload": {
+      "soc_percent": 50,
+      "battery_capacity_kwh": 60,
+      "distance_km": 50
+    },
+    "status": 200,
+    "response": {
+      "status": "success",
+      "energy_needed_kwh": 12.2967,
+      "energy_available_kwh": 30.0,
+      "range_remaining_km": 87.82,
+      "can_reach": true,
+      "charge_status": "Sufficient charge"
+    }
+  },
+  {
+    "path": "/evcs/predict",
+    "payload": {
+      "SOC_percent": 50,
+      "target_SOC": 80,
+      "battery_capacity_kWh": 60,
+      "charger_power_kW": 50
+    },
+    "status": 200,
+    "response": {
+      "status": "success",
+      "charging_time_mins": 38.46
+    }
+  }
+]

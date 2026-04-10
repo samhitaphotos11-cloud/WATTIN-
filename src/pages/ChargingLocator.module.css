@@ -1,0 +1,471 @@
+/* =========================================================
+   ChargingLocator — Fluid Navigator Light Theme
+   ========================================================= */
+
+.page {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.panel {
+  width: 380px;
+  min-width: 340px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 18px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panelHeading {
+  font-family: var(--font-headline);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--on-surface);
+  line-height: 1.2;
+}
+
+.panelSub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.resetBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: var(--surface-container-lowest);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.resetBtn:hover {
+  color: var(--primary);
+  background: var(--surface-container-low);
+}
+
+.panelScroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Filter */
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filterLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  appearance: none;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 10px 32px 10px 12px;
+  font-size: 13px;
+  color: var(--on-surface);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+  font-family: var(--font-body);
+}
+
+.select:focus {
+  border-color: var(--border-active);
+  box-shadow: 0 0 0 3px rgba(0, 107, 92, 0.08);
+}
+
+.select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.select option {
+  background: var(--surface-container-lowest);
+  color: var(--on-surface);
+}
+
+/* Type chips */
+.typeChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.typeChip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+
+.typeChip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.typeChipActive {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(0, 107, 92, 0.06);
+}
+
+.typeChipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Toggle */
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.toggleLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.toggle {
+  width: 38px;
+  height: 20px;
+  background: var(--surface-container-high);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.toggleOn {
+  background: rgba(0, 191, 165, 0.2);
+  border-color: var(--primary);
+}
+
+.toggleThumb {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  top: 2px;
+  left: 2px;
+  transition: all var(--transition-base);
+}
+
+.toggleOn .toggleThumb {
+  background: var(--primary);
+  left: 20px;
+  box-shadow: 0 0 6px rgba(0, 107, 92, 0.4);
+}
+
+/* Legend */
+.legendGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendLabel { flex: 1; }
+
+.legendCount {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  background: var(--surface-container-low);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+/* Station list */
+.noResults {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px 0;
+}
+
+.stationList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stationCard {
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.stationCard:hover {
+  border-color: var(--primary);
+  background: var(--surface-container-low);
+  box-shadow: var(--shadow-sm);
+}
+
+.stationCardSelected {
+  background: rgba(0, 107, 92, 0.04);
+  border-color: rgba(0, 107, 92, 0.3);
+}
+
+.stationCardTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.stationCardDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stationCardName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface);
+  flex: 1;
+  line-height: 1.2;
+}
+
+.stationCardAvail {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.availYes {
+  background: rgba(0, 191, 165, 0.1);
+  color: var(--primary);
+}
+
+.availNo {
+  background: rgba(186, 26, 26, 0.08);
+  color: var(--error);
+}
+
+.stationCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.dot {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.stationCardAddr {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* Map */
+.mapArea {
+  flex: 1;
+  position: relative;
+}
+
+.leafletMap {
+  width: 100%;
+  height: 100%;
+}
+
+/* Detail card */
+.detailCard {
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  z-index: 500;
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-2xl);
+  padding: 18px;
+  width: 280px;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.25s ease both;
+}
+
+.detailHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.detailDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.detailName {
+  font-family: var(--font-headline);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-surface);
+  flex: 1;
+  line-height: 1.2;
+}
+
+.detailClose {
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detailClose:hover { color: var(--on-surface); }
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.detailStat {
+  background: var(--surface-container-low);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+}
+
+.detailStatLabel {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.detailStatVal {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.detailAddress {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page {
+    flex-direction: column;
+  }
+  .panel {
+    width: 100%;
+    min-width: 100%;
+    max-height: 45vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .mapArea {
+    flex: 1;
+    min-height: 300px;
+  }
+}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#44ddc1",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#d5e0f8",
+                    "inverse-primary": "#44ddc1",
+                    "surface-tint": "#006b5c",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "on-secondary-fixed": "#111c2d",
+                    "outline": "#6c7a76",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#7f2a13",
+                    "background": "#f7f9fb",
+                    "tertiary": "#9f4128",
+                    "primary-fixed": "#68fadd",
+                    "primary": "#006b5c",
+                    "surface-dim": "#d8dadc",
+                    "on-surface": "#191c1e",
+                    "surface-container": "#eceef0",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#545f73",
+                    "outline-variant": "#bbcac4",
+                    "surface-variant": "#e0e3e5",
+                    "on-surface-variant": "#3c4a46",
+                    "on-tertiary-fixed": "#3c0800",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#ffdbd2",
+                    "tertiary-container": "#fe896a",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#00473c",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#00201a",
+                    "on-tertiary-container": "#74220b",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#586377",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "surface-container-low": "#f2f4f6",
+                    "surface": "#f7f9fb",
+                    "on-primary-fixed-variant": "#005145",
+                    "primary-container": "#00bfa5",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed-dim": "#ffb4a1",
+                    "secondary-fixed": "#d8e3fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl flex justify-between items-center px-6 py-4 shadow-sm shadow-teal-900/5">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-extrabold text-teal-800 dark:text-teal-200 font-['Plus_Jakarta_Sans'] tracking-tight">Fluid Navigator</span>
+<div class="hidden md:flex items-center bg-surface-container-highest rounded-full px-4 py-2 gap-3 w-96">
+<span class="material-symbols-outlined text-slate-500">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body" placeholder="Search past journeys..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100/50 transition-colors scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined text-teal-700">settings</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100/50 transition-colors scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined text-teal-700" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 flex flex-col h-full py-8 px-4 z-40 bg-slate-50 h-screen w-72 rounded-r-3xl shadow-2xl shadow-slate-200/50 pt-24">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<img alt="User Profile" class="w-12 h-12 rounded-2xl object-cover" data-alt="Close up portrait of a professional male user in a modern minimalist setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCRA69BZcUGTqOhc9kfXRn1C1OyZvm6hyvkBNYXK2SBrZVQg0V8hZ9rE4qB-_MRH83VNy-dSCM4yn4AkpJ-mweiwS79ajXprqc3ub3ezSn0g685a2ewKIA4JHM51M3yAcx9vq6Y8GymhQbpa1U7FTTfBSOc-sdvbHphJOix_BEopvgAPQncGt69uDT9FgvQwOqMIoIxzlF1W49sIpjHPqNmor-Ai3GZzrQ_0199SoiguVFQWDMGI_X5x0lq5V5IWbYADsRIowsbNiu"/>
+<div>
+<p class="font-bold text-teal-900 text-sm">Navigator Pro</p>
+<p class="text-xs text-slate-500">Tesla Model 3 - 82% SOC</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-teal-50 hover:text-teal-800 transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined">route</span>
+<span class="font-medium text-sm">Plan Route</span>
+</a>
+<a class="flex items-center gap-3 bg-white text-teal-700 rounded-xl px-4 py-3 shadow-sm transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-medium text-sm">History</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-teal-50 hover:text-teal-800 transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined">ev_station</span>
+<span class="font-medium text-sm">Charging Hubs</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-teal-50 hover:text-teal-800 transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-medium text-sm">Saved Places</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-slate-100 space-y-2">
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-bold text-sm shadow-lg shadow-primary/20 mb-6 hover:scale-105 transition-transform">
+                New Journey
+            </button>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:text-teal-800" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-medium text-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:text-teal-800" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-medium text-sm">Account</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 pt-28 px-10 pb-20 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<nav class="flex items-center gap-2 text-sm text-slate-500 mb-2 font-label">
+<span>Navigator</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-semibold">History</span>
+</nav>
+<h1 class="text-5xl font-extrabold tracking-tight text-on-surface">Journey History</h1>
+<p class="text-slate-500 mt-2 text-lg">Detailed logs of your electric adventures.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex p-1 bg-surface-container-low rounded-2xl">
+<button class="px-6 py-2 bg-white text-primary font-bold rounded-xl shadow-sm">Recent</button>
+<button class="px-6 py-2 text-slate-500 font-medium">Monthly</button>
+<button class="px-6 py-2 text-slate-500 font-medium">Total</button>
+</div>
+<button class="flex items-center gap-2 px-5 py-3 bg-surface-container-lowest rounded-2xl shadow-sm text-on-surface font-semibold hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+<span>Filter</span>
+</button>
+</div>
+</header>
+<!-- Stats Grid (Editorial Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="col-span-1 md:col-span-2 bg-primary-container p-8 rounded-[2.5rem] relative overflow-hidden flex flex-col justify-between h-64">
+<div class="relative z-10">
+<p class="text-on-primary-container font-semibold opacity-80 uppercase tracking-widest text-xs mb-1">Total Distance</p>
+<h2 class="text-6xl font-extrabold text-on-primary-container tracking-tighter">12,482 <span class="text-2xl opacity-60">km</span></h2>
+</div>
+<div class="relative z-10 flex items-center gap-2 text-on-primary-container font-bold">
+<span class="material-symbols-outlined text-teal-800">trending_up</span>
+<span>+12% from last month</span>
+</div>
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/20 rounded-full blur-3xl"></div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-[2.5rem] shadow-sm flex flex-col justify-between border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+<div>
+<p class="text-slate-500 font-medium text-sm">Avg. Efficiency</p>
+<h3 class="text-3xl font-bold text-on-surface">174 <span class="text-base font-medium opacity-50">Wh/km</span></h3>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-[2.5rem] shadow-sm flex flex-col justify-between border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary text-4xl">ev_station</span>
+<div>
+<p class="text-slate-500 font-medium text-sm">Charging Stops</p>
+<h3 class="text-3xl font-bold text-on-surface">42 <span class="text-base font-medium opacity-50">Total</span></h3>
+</div>
+</div>
+</div>
+<!-- History List (No-Line Principle) -->
+<div class="space-y-4">
+<h3 class="text-xl font-bold px-4 mb-6">Recent Trips</h3>
+<!-- Trip Card 1 -->
+<div class="group bg-surface-container-lowest p-6 rounded-[2rem] hover:bg-slate-50 transition-all duration-300 flex items-center gap-8 relative overflow-hidden">
+<div class="w-20 h-20 rounded-3xl overflow-hidden bg-slate-100 flex-shrink-0">
+<img alt="San Francisco" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Aerial view of the Golden Gate Bridge at sunset with vibrant orange and teal skies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTtuMg8dIoLrGbJdLngqMMrgDyy825vKs0A7pJEu5ZJ6K1f3SDWfqbDRnK3C8s26hGl7Dg0HoMHeERO6htDQH4FdU0gjVgUh1VKuBtNc_yPxt_O9OSuDm2oSm3hRxBKssXeMpvnzW5-_344PQTW_XNLxcpHlsUBn3eUC0w0Xo3K6dXQTZ11UBYtjKQUfVQuPpQGeDs_ziO2e65h78h7dVw2qDrn8DWgRdfusY3JRNso6D2o5mkgFewOdaxgbQzI_tCpSvO1hn17SYi"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 text-slate-400 text-sm mb-1 font-label">
+<span>Oct 14, 2023</span>
+<span>•</span>
+<span>10:24 AM</span>
+</div>
+<h4 class="text-xl font-bold text-on-surface">San Francisco <span class="text-slate-300 mx-2 font-light">→</span> Los Angeles</h4>
+<div class="flex items-center gap-6 mt-3">
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">distance</span>
+                            614 km
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">speed</span>
+                            182 Wh/km
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">ev_station</span>
+                            2 Stops
+                        </div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 pr-4">
+<span class="px-4 py-1.5 bg-teal-50 text-teal-700 text-xs font-bold rounded-full">OPTIMIZED</span>
+<button class="p-3 bg-surface-container-low rounded-2xl hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<!-- Trip Card 2 -->
+<div class="group bg-surface-container-lowest p-6 rounded-[2rem] hover:bg-slate-50 transition-all duration-300 flex items-center gap-8 relative overflow-hidden">
+<div class="w-20 h-20 rounded-3xl overflow-hidden bg-slate-100 flex-shrink-0">
+<img alt="New York City" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Wide angle view of New York City skyline at dusk with shimmering building lights and deep blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_mLSxv-Twk5FO38ANGbmyH9bdrrFKYa-RO6suWaM-B649azMnwJjKDzapRXKlo3nyoYCvHCLVkyAQW36192JHCmxh0pH9AkTU8d9LXTUfykl81KTiWtVtK4NuvvLgeMFjDZsGlJ8UTJxNUwZs0Lau5B4Y0eplqCWCceiMi5hs39mzN-SqO09ztGTMqEC71p4QRWfXJeY6SxdsP7rkJr5JbWDWOngDtlBc1gTta_Kq1s6-OZfMRa39SHziGWRFR6FEC08LFM-LwEcD"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 text-slate-400 text-sm mb-1 font-label">
+<span>Oct 11, 2023</span>
+<span>•</span>
+<span>08:15 AM</span>
+</div>
+<h4 class="text-xl font-bold text-on-surface">New York <span class="text-slate-300 mx-2 font-light">→</span> Philadelphia</h4>
+<div class="flex items-center gap-6 mt-3">
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">distance</span>
+                            152 km
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">speed</span>
+                            168 Wh/km
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">ev_station</span>
+                            0 Stops
+                        </div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 pr-4">
+<span class="px-4 py-1.5 bg-slate-100 text-slate-500 text-xs font-bold rounded-full">ECO MODE</span>
+<button class="p-3 bg-surface-container-low rounded-2xl hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<!-- Trip Card 3 -->
+<div class="group bg-surface-container-lowest p-6 rounded-[2rem] hover:bg-slate-50 transition-all duration-300 flex items-center gap-8 relative overflow-hidden">
+<div class="w-20 h-20 rounded-3xl overflow-hidden bg-slate-100 flex-shrink-0">
+<img alt="Seattle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Cloudy morning view of the Seattle Space Needle with soft misty light and urban surroundings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9TwOnaVqpCcQgB1dt5TMAB6hZDFR8iG-BclphNWTQ3debIiobtT-LvSUT56htdq358M91FLtnDAIZcS1DkkV9x4eZLQmBn3B07r1Kr66b4RPdaCw9LC9lB0q95-F_86IW1xWp1Tiw0ffko_XSHrorokXHFVH0fII6sjomQlhsBzu86DhzZvK9XQ90y9hTl3Z_k2VS4OstbYk5EGg4CvUhngJ7lDQTrby4bkN_zfQgrioBYfJQCdtse7V2vShx-Q06HzSk-zZa6DTO"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 text-slate-400 text-sm mb-1 font-label">
+<span>Oct 08, 2023</span>
+<span>•</span>
+<span>06:45 PM</span>
+</div>
+<h4 class="text-xl font-bold text-on-surface">Seattle <span class="text-slate-300 mx-2 font-light">→</span> Portland</h4>
+<div class="flex items-center gap-6 mt-3">
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">distance</span>
+                            280 km
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">speed</span>
+                            195 Wh/km
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-xs text-primary">ev_station</span>
+                            1 Stop
+                        </div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 pr-4">
+<span class="px-4 py-1.5 bg-error-container text-on-error-container text-xs font-bold rounded-full">HIGH USAGE</span>
+<button class="p-3 bg-surface-container-low rounded-2xl hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer / Pagination Area -->
+<div class="mt-12 flex justify-center">
+<button class="flex items-center gap-2 px-10 py-4 bg-surface-container-high rounded-full font-bold text-on-surface-variant hover:bg-surface-variant transition-colors group">
+                Load More Journeys
+                <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</main>
+<!-- FAB (Suppressed on History Screen as per rules, but included if needed contextually) -->
+<!-- Suppressed: Navigation to prioritize content canvas -->
+</body></html>
